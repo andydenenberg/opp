@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Osprey Point Partners</title>
+    <meta name="Entrepreneurs" content="">
+    <meta name="Andy Denenberg" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link href="../1.4.0/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="#">Osprey Point Partners</a>
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="/pages/about">About</a></li>
+            <li><a href="/pages/experience">Experience</a></li>
+            <li><a href="http://ospreypointpartners.blogspot.com" target="_blank">Blog</a></li>
+            <li><%= link_to "Contact" , new_contact_path %></li>
+			<% if user_signed_in? %>
+			  	<li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+			<% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+
+	      <div class="row">
+	        <div class="span3">
+				<ul class="media-grid">
+				  <li>
+				    <a>
+				      <img class="thumbnail" src="OspreyNASA_157.png" alt="">
+				    </a>
+				  </li>
+				</ul>
+	        </div>
+	        <div class="span11">
+			        <h1>Osprey Point Partners</h1><br>
+					<p>A trusted business advisor to technology entrepreneurs and investors</p><br>
+					
+					
+				    <% if User.all.count == 0 %>
+						<%= link_to('start', new_user_registration_path) %>
+					<% end %>
+				  
+	       </div>
+	      </div>
+      </div>
+
+
+
+<!-- Example row of columns -->
+<div class="row">
+	  <div class="span3 offset5">
+		<a href="http://ospreypointpartners.blogspot.com" target="_blank" shape="rect">
+		<img src="http://www.google.com/help/hc/images/logos/blogger_logo.gif"> </a>
+	  </div>
+	  <div class="span2">
+		<a href="http://www.twitter.com/andydenenberg" target="_blank" shape="rect">
+		<img src="http://twitter-badges.s3.amazonaws.com/follow_us-a.png"> </a>
+	 </div>
+</div>
+
+      <footer>
+
+        <p>&copy; 2011</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
