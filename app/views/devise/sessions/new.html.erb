@@ -24,33 +24,60 @@
 
   <body>
 
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">Osprey Point Partners</a>
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="/pages/about">About</a></li>
+            <li><a href="/pages/experience">Experience</a></li>
+            <li><a href="http://ospreypointpartners.blogspot.com" target="_blank">Blog</a></li>
+            <li><%= link_to "Contact" , new_contact_path %></li>
+			<% if user_signed_in? %>
+			  	<li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+			<% else %>
+			  	<li><%= link_to('Login', new_user_session_path) %></li>
+			<% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
 
       <!-- Main hero unit for a primary marketing message or call to action -->
 
       <div class="hero-unit">
 
-<h2>Sign in</h2>
-
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+<form action="" class="form">
+  <fieldset>
+    <legend>Sign in</legend>
+    <div class="clearfix">
+      <label for="xlInput3">ID</label>
+      <div class="input">
+          <%= f.email_field :email , :class=>"xlarge" , :size=>"30" %>
+      </div>
+    </div><!-- /clearfix -->
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+    <div class="clearfix">
+      <label for="xlInput3">Password</label>
+      <div class="input">
+	    <%= f.password_field :password , :class=>"xlarge" , :size=>"30" %>
+      </div>
+    </div><!-- /clearfix -->
 
-<%= render :partial => "devise/shared/links" %>
+  </fieldset>
+  <div class="actions">
+    <button type="submit" class="btn success">Send</button>&nbsp;<a class="btn info" href="/">Cancel &raquo;</a>
+
   </div>
-
-  <footer>
-    <p>&copy; 2011</p>
-  </footer>
+</form>
 
 </div> <!-- /container -->
 
-
+<% end %>
   </body>
 </html>
