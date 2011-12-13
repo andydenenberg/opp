@@ -1,3 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Osprey Point Partners</title>
+    <meta name="Entrepreneurs" content="">
+    <meta name="Andy Denenberg" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link href="bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+
+      <div class="hero-unit">
+
 <h2>Sign in</h2>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
@@ -7,11 +39,18 @@
   <div><%= f.label :password %><br />
   <%= f.password_field :password %></div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
   <div><%= f.submit "Sign in" %></div>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
+  </div>
+
+  <footer>
+    <p>&copy; 2011</p>
+  </footer>
+
+</div> <!-- /container -->
+
+
+  </body>
+</html>
