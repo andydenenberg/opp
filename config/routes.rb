@@ -6,7 +6,7 @@ Ospreypoint::Application.routes.draw do
   
   resources :home do
     collection do
-      get 'projects'
+      get 'resume'
     end
   end
   

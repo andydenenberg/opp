@@ -4,7 +4,7 @@ class HomeController < ApplicationController
     
   end
   
-  def projects
+  def resume
     
   end
       
