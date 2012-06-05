@@ -14,6 +14,8 @@ group :development, :test do
 gem 'sqlite3'
 end
 
+gem 'sendgrid'
+
 gem 'devise'
 
 # Gems used only for assets and not required
