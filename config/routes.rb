@@ -7,6 +7,7 @@ Ospreypoint::Application.routes.draw do
   resources :home do
     collection do
       get 'resume'
+      get 'blog'
     end
   end
   

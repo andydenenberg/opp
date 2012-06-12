@@ -1,0 +1,62 @@
+<div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+
+		  <div class="page-header">
+		    <h3>Being Efficient and Productive</h3>
+		<p>Keeping track of revelations, insights and helpful hints</h1>
+		  </div>
+
+			<h4>Improvements to be made in Talon</h4>June 12, 2012
+			  <div class="row">
+			    <div class="span14">
+		<p>
+1. Add the mobile site option using jquery mobile for style<br>
+2. Show the status of the monitors<br>
+		<br>
+				</p>
+			    </div>
+			  </div>		
+
+
+
+	<h4>Rails Asset Pipeline</h4>June 10, 2012
+	  <div class="row">
+	    <div class="span14">
+<p>I have used the pipeline over the past few months without really digging in and understanding how is does its magic.  For the most part it has served up what I have shoved into the assets folders, but recently started to misbehave.  The pipeline process is quite simple so troubleshooting it shouldn't be that hard. The difficulty comes from the dependencies between the functions in files.  Loading precedence of individual files has a big impact.  I recently finished tuning this in <%= link_to 'Talon', 'http://talon-v2.heroku.com' %> with the following application.js file:
+<br>
+<code>
+//= require jquery<br>
+//= require jquery_ujs<br>
+//= require_directory ./jqplot<br>
+//= require_tree .<br>
+//= require ./jqplot/plugins/dateAxisRenderer<br>
+//= require ./jqplot/plugins/pieRenderer<br>
+</code><br>
+Inside the jqplot sub-directory is an index.js file which contains the following:
+<code><br>
+//= require_self<br>
+//= require ./jqplot.core<br>
+//= require ./jqplot.effects.core<br>
+//= require_directory .<br>
+</code><br>
+<pre>The order of loading is:
+1. jquery
+2. jquery_ujs
+3. index
+4. jqplot.core
+5. jqplot.effects.core
+6. ..the remaining files in jqplot sub-directory
+7. ..the remaining files in javascript
+8. dateAxisRenderer in the plugins subdirectory of jqplot
+9. pieRenderer in the plugins subdirectory of jqplot
+</pre>
+		</p>
+	    </div>
+	  </div>		
+	
+		
+</div> <!-- Container --> 
+
+  </body>
+</html>
