@@ -55,6 +55,63 @@ Inside the jqplot sub-directory is an index.js file which contains the following
 	    </div>
 	  </div>		
 	
+	
+		<h4>Rails on Heroku</h4>June 1, 2012
+		  <div class="row">
+		    <div class="span14">
+	<p>Running a rails app on Heroku is one of the finer things about developing in the ROR environment.  Making it work is very simple and easy.  Very Apple_esque...
+	<br>
+	
+First a couple of simple gem file tweaks if you are running sqlite local:
+<pre>
+gem 'therubyracer-heroku', :group => :production
+group :production do
+gem 'pg'
+end
+group :development, :test do
+gem 'sqlite3'
+end
+</pre>
+
+Second, Heroku needs to precompile assets so make this change to: production.rb:
+<pre>
+# Don't fallback to assets pipeline if a precompiled asset is missed
+config.assets.compile = true
+</pre>
+
+
+Finally, here is all you need to push a git repo to Heroku.  The rest is automatic...
+<pre>	
+heroku create appname
+heroku rename appname # if needed
+git push heroku master
+
+heroku rake db:migrate
+or 
+heroku db:push
+heroku db:pull
+if needed...
+heroku pg:reset SHARED_DATABASE
+</pre>
+
+Some handy Utilities..
+<pre>
+to reset heroku > 
+git remote rm heroku
+
+to debug on Heroku - heroku log
+
+to stop a Heroku App:
+heroku maintenance:on
+
+and later
+heroku maintenance:off
+</pre>	
+	
+	</p>
+  </div>
+</div>		
+
 		
 </div> <!-- Container --> 
 
