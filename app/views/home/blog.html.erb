@@ -1,11 +1,107 @@
 <div class="container">
 
-      <!-- Main hero unit for a primary marketing message or call to action -->
 
-		  <div class="page-header">
-		    <h3>Being Efficient and Productive</h3>
-		<p>Keeping track of revelations, insights and helpful hints</h1>
-		  </div>
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="page-header">
+<h3>Being Efficient and Productive</h3>
+<p>Keeping track of revelations, insights and helpful hints</p>
+</div>
+
+<h4>The simplicity of rails in the cloud</h4>June 28, 2012
+  <div class="row">
+    <div class="span14">
+
+<p>
+I plan to present how simple and lightweight rails is to a current Microsoft Shop.  My plan is to run through a very quick example using scaffolding, github and Heroku.  Here are the steps:
+
+<pre>
+1. Create the basic rails app
+	- rails new new_app
+2. Create a TextMate project for new_app
+	- mate new_app
+3. Generate the scaffold with simple data fields
+	- rails g scafold emp name:string age:integer salary:decimal
+4. Run Migration
+	- rake db:migrate
+5. Delete the public/index.html
+6. Update routes
+	- set root to emp#index
+7. Install the bundle of gems
+	- bundle install
+8. Test locally
+	- rails s
+9. Prepare database for PG on Heroku
+	- add to following to gemfile
+
+	group :production do
+	gem 'pg'
+	end
+	group :development, :test do
+	gem 'sqlite3'
+	end
+
+10. Create a git repo
+
+	git init
+	git add .
+	git commit -a -m "whatever comments"
+	git remote add origin git@github.com:andydenenberg/ajax_hw.git
+	git push origin master
+
+11. Push up to Heroku
+
+	heroku create
+	heroku rename appname
+	git push heroku master
+	heroku rake db:migrate
+
+12. heroku open - Thats it!
+</pre>
+
+	<br>
+	<br>
+	</p>
+  </div>
+</div>		
+
+
+<h4>Adding Devise Password Confirmation</h4>June 12, 2012
+  <div class="row">
+    <div class="span14">
+<p>
+	<pre>
+1. Gemfile - add 'sendfile'
+2. Create migration to add confirmation_token, confirmed_at and confirmation_sent_at to schema
+3. Create notifier.rb
+4. Append :confirmable to the User Model
+5. Insert config.action_mailer.default_url_options = { :host => 'localhost:3000' } into development.rb
+6. Insert config.action_mailer.default_url_options = { :host => '{appname}.heroku.com' } into production.rb
+7. Insert 
+
+config = YAML.load(File.read('../../../desktop/config.yml'))   
+
+	ActionMailer::Base.smtp_settings = {
+	  :user_name =>  config['user_name'],
+	  :password => config['password'],
+	#  :user_name =>  ENV['SENDGRID_USERNAME'] ,
+	#  :password => ENV['SENDGRID_PASSWORD'] ,
+	  :domain => "ospreypointpartners.com",
+	  :address => "smtp.sendgrid.net",
+	  :port => 587,
+	  :authentication => :plain,
+	  :enable_starttls_auto => true
+	}
+
+into environment.rb
+8. heroku addons:add sendgrid:starter
+9. heroku config:add SENDGRID_USERNAME=... & SENDGRID_PASSWORD=...
+</pre>
+<br>
+<br>
+	</p>
+    </div>
+  </div>		
+
 
 			<h4>Improvements to be made in Talon</h4>June 12, 2012
 			  <div class="row">
