@@ -19,40 +19,77 @@ For scheduled processing and tasks I have been running local Ubunto (11.10 & 12.
 <p>This what is required to set it up:
 <pre>
 1. Under Amazon EC2 Console Dashboard click on Key Pairs
+
 2. Create and name a new key pair ie: blog_site
+
 3. Move the downloaded PEM file to the 
 	mv ~/Downloads/blog_site.pem ~/.ssh
+
 4. Update the PEM file to be read-only 
 	chmod 600 ~/.ssh/blog_site.pem
+
 5. Check for the file
  	ls ~/.ssh
+
 6. Create an instance of:
- 	Amazon Linux AMI 2012.03 64 bit Free tier eligible - The Amazon Linux AMI 2012.03 is an EBS-backed, PV-GRUB image. It includes Linux 3.2, AWS tools, and repository access to multiple versions of MySQL, PostgreSQL, Python, Ruby, and Tomcat.
+ 	Amazon Linux AMI 2012.03 64 bit Free tier eligible - The Amazon Linux AMI 2012.03 is an EBS-backed, PV-GRUB image. It includes Linux 
+3.2, AWS tools, and repository access to multiple versions of MySQL, PostgreSQL, Python, Ruby, and Tomcat.
+
 	Name the site: Blog Site
 	Select the key pair: blog_site
+
 7. Determine the public DNS for the site under running instances:
 	ec2-23-20-248-11.compute-1.amazonaws.com
+
 8. Login to the running instance as: ec2-user
 	ssh -i ~/.ssh/blog_site.pem ec2-user@ec2-23-20-248-11.compute-1.amazonaws.com
 	Note: make sure to use to correct PEM file...
-9. You in
+
+9. You in...
 
 10. Now to install Rails
-sudo -s
-sudo yum update
-ruby -v
-groupadd rvm
-gpasswd -a ec2-user rvm
-yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison iconv-devel
-curl -L get.rvm.io |bash -s stable
+
+11. sudo -s
+
+12. sudo yum update
+
+13. ruby -v
+
+14. groupadd rvm
+
+15. gpasswd -a ec2-user rvm
+
+16. yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison iconv-devel
+
+17. curl -L get.rvm.io |bash -s stable
 rvm install 1.9.3
-ruby -v
 
-rvm rubygems latest
+18. ruby -v
 
-gem install --no-rdoc --no-ri rails
+19. rvm rubygems latest
+
+20. gem install --no-rdoc --no-ri rails
 
 Thats it!
+
+No Create a Rails App
+
+1.  rails new new_app
+
+2.  cd new_app
+
+3.  vim gemfile
+	i ( insert a # to comment out the sqlite gem )
+	esc
+	:wq to save
+	
+4. vim public/index.html
+    v ( starts the process to highlight text )
+	esc
+	dd ( deletes highlighted text )
+	:wq to save
+5. 
+
 </pre>
 	
 		</p>
