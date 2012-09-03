@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/views/home/resume.html.erb</string>
+	<string>ospreypoint copy/app/views/home/index.html.erb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -126,30 +126,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>156</integer>
+				<integer>3</integer>
 				<key>line</key>
-				<integer>14</integer>
+				<integer>21</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>28</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>153</integer>
-				<key>line</key>
-				<integer>14</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>156</integer>
-				<key>line</key>
-				<integer>14</integer>
-			</dict>
+			<integer>0</integer>
 		</dict>
 		<key>app/views/home/index.html.erb</key>
 		<dict>
@@ -177,7 +161,7 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>68</integer>
+			<integer>0</integer>
 		</dict>
 		<key>app/views/layouts/application.html.erb</key>
 		<dict>
@@ -207,12 +191,27 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>ospreypoint copy/app/views/home/index.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>84</integer>
+				<key>line</key>
+				<integer>66</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>59</integer>
+		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
 		<string>app/views/home/resume.html.erb</string>
 		<string>Gemfile</string>
 		<string>app/views/home/blog.html.erb</string>
+		<string>ospreypoint copy/app/views/home/index.html.erb</string>
 		<string>app/views/devise/sessions/new.html.erb</string>
 		<string>config/routes.rb</string>
 		<string>app/controllers/home_controller.rb</string>
@@ -225,6 +224,6 @@
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{219, 93}, {1061, 621}}</string>
+	<string>{{219, 152}, {1061, 621}}</string>
 </dict>
 </plist>

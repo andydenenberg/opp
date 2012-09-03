@@ -1,5 +1,26 @@
 <div class="container">
 
+<h3>Using Resque and Redis to asynchronously send mail</h3>
+
+Using Macports install Redis<br>
+sudo port selfupdate<br>
+sudo port update outdated<br>
+sudo port install redis<br>
+<br>
+Run the Redis Server<br>
+redis-server<br>
+<br>
+Run the Resque Task<br>
+rake resque:work VERBOSE=1 QUEUE=*<br>
+<br>
+Test the connections<br>
+rake resque_mailer:send_test to_email=andy@effenfinance.com<br>
+<br>
+To Monitor the Resque System<br>
+resque-web -p 8282<br>
+<br>
+<br>
+
 
 <!-- Main hero unit for a primary marketing message or call to action -->
 <div class="page-header">
@@ -10,6 +31,9 @@
 <h4>Running a Rails Stack at Amazon EC2</h4>July 22, 2012
   <div class="row">
     <div class="span14">
+
+https://www.digitalocean.com/community/articles/how-to-install-ruby-on-rails-on-ubuntu-12-04-lts-precise-pangolin-with-rvm
+gem install --no-rdoc --no-ri rails
 
 <p>
 For scheduled processing and tasks I have been running local Ubunto (11.10 & 12.04 ) running rake tasks under Rails.  The local environment doesn't scale well.  Its good for slow, but flexible job processing.   For Web Server hosting I have been using Heroku. This environment is good for fast and simple restful Rails applications.  Amazon EC2 has the potential to support both under one platform.
@@ -89,6 +113,8 @@ No Create a Rails App
 	dd ( deletes highlighted text )
 	:wq to save
 5. 
+
+http://www.tuxfiles.org/linuxhelp/vimcheat.html
 
 </pre>
 	
