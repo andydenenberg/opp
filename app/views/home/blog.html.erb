@@ -1,5 +1,70 @@
 <div class="container">
 
+<h3>Install Ubunto 12.04 on Amazon EC-2 </h3>
+1. sudo apt-get install apache2
+2. sudo apt-get install mysql-server mysql-client
+3. sudo apt-get install build-essential git-core curl libmysqlclient-dev nodejs
+
+4. Install Ruby
+	sudo apt-get update
+	sudo apt-get install curl
+	curl -L get.rvm.io | bash -s stable
+	source ~/.rvm/scripts/rvm
+
+	# query rvm to determine the ruby requirements
+	rvm requirements
+	look for dependencies...should be somethng like the following:
+	
+	sudo apt-get install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion pkg-config
+
+
+	rvm install 1.9.3
+	rvm use 1.9.3 --default
+
+	rvm rubygems latest
+
+5. Install Rails
+	gem install --no-rdoc --no-ri rails
+
+	Add this to the bottom of your ~/.bashrc file:
+	[[ -s "/home/ubuntu/.rvm/scripts/rvm" ]] && source "/home/ubuntu/.rvm/scripts/rvm"
+
+6. Install passenger
+	gem install passenger --no-rdoc --no-ri
+	
+	After the gem installs run 'passenger-install-apache2-module' 
+	the install will run and it will probably tell you that you are missing some stuff. So just install that stuff. In my case I need 'sudo apt-get install libcurl4-openssl-dev apache2-prefork-dev libapr1-dev libaprutil1-dev'. 
+	
+	So after that stuff installs, run 'passenger-install-apache2-module' again. After passenger installs  DON'T CLEAR THE SCREEN!!! You need to copy the LoadModule statement and paste that into your /etc/apache2/httpd.conf file.
+
+	7.
+	>Create a rails app
+	OK, we have all this cool configuration, now how do we wrap it all up with a rails app. OK, lets create one, but before we do we are in production now, so lets install a real database. Run 'sudo apt-get install mysql-server'. No, its not postgres, which is a REAL database, but it will do. MEEEOW...give that kitty a bowl of milk! OK, now lets create a rails app, and we will make mysql our default DB. Lets run 'rails new task_app -d mysql', and cd into that directory and go ahead and add 'gem therubyracer' to the Gemfile and run bundle (why do I have to do that?).  Also before I can run any rails scaffold commands I have to run 'export RAILS_ENV=production' why do I have to do this?
+
+	Sooo, now we can run some scaffolding 'rails g scaffold task name importance:boolean'
+
+	OK, if we check out app/config/database.yml we see the mysql configuration from our app, and it has given us a default name of 'task_app_production'. So lets run 'rake db:create' and 'rake db:migrate'.
+
+	Now we need to add this to our apache config file in /etc/apache2/httpd.conf
+
+	   LoadModule passenger_module /home/ubuntu/.rvm/gems/ruby-1.9.2-p320/gems/passenger-3.0.12/ext/apache2/mod_passenger.so
+	   PassengerRoot /home/ubuntu/.rvm/gems/ruby-1.9.2-p320/gems/passenger-3.0.12
+	   PassengerRuby /home/ubuntu/.rvm/wrappers/ruby-1.9.2-p320/ruby
+
+	<VirtualHost *:80>
+	    ServerName www.yourserver.com
+	    DocumentRoot /home/ubuntu/task_app/public
+	    <Directory /home/ubuntu>
+	        Allow from all
+	    </Directory>
+	</VirtualHost>
+
+	..and one more thing before we lock and load. We need to go in to config/environments/production.rb and set 'config.assets.compile = true' rather than 'false'. Now restart apache with 'sudo service apache2 restart' and you should be good to go!
+
+	http://lumbee-on-rails.blogspot.com/2012/05/aws-ubuntu-1204-apache-and-rails.html
+
+
+
 <h3>Using Resque and Redis to asynchronously send mail</h3>
 
 Using Macports install Redis<br>

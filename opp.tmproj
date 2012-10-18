@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>ospreypoint copy/app/views/home/index.html.erb</string>
+	<string>config/database.yml</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -30,26 +30,10 @@
 				<key>line</key>
 				<integer>15</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>6</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>15</integer>
-			</dict>
 		</dict>
 		<key>app/controllers/home_controller.rb</key>
 		<dict>
@@ -126,14 +110,30 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>3</integer>
+				<integer>224</integer>
 				<key>line</key>
-				<integer>21</integer>
+				<integer>37</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>196</integer>
+				<key>line</key>
+				<integer>37</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>224</integer>
+				<key>line</key>
+				<integer>37</integer>
+			</dict>
 		</dict>
 		<key>app/views/home/index.html.erb</key>
 		<dict>
@@ -177,6 +177,20 @@
 			<key>firstVisibleLine</key>
 			<integer>13</integer>
 		</dict>
+		<key>config/database.yml</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>config/routes.rb</key>
 		<dict>
 			<key>caret</key>
@@ -203,7 +217,7 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>59</integer>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>openDocuments</key>
@@ -211,6 +225,7 @@
 		<string>app/views/home/resume.html.erb</string>
 		<string>Gemfile</string>
 		<string>app/views/home/blog.html.erb</string>
+		<string>config/database.yml</string>
 		<string>ospreypoint copy/app/views/home/index.html.erb</string>
 		<string>app/views/devise/sessions/new.html.erb</string>
 		<string>config/routes.rb</string>
